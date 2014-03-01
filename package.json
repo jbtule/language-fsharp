@@ -1,6 +1,6 @@
 {
   "name": "language-fsharp",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "description": "F# language support for Atom",
   "repository": "https://github.com/jbtule/language-fsharp",
@@ -13,6 +13,5 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
