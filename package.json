@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "private": true,
   "description": "F# language support for Atom",
-  "repository": "https://github.com/atom/language-fsharp",
+  "repository": "https://github.com/jbtule/language-fsharp",
   "keywords": [
     "F#",
     "fsharp",
