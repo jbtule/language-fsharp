@@ -168,11 +168,11 @@
         'name': 'meta.preprocessor.fsharp'
       }
       {
-        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do)\\b'
+        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do|downcast|upcast|try|catch)\\b'
         'name': 'keyword.other.fsharp'
       }
       {
-        'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_)'
+        'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_|@)'
         'name': 'keyword.operator'
       }
     ]
