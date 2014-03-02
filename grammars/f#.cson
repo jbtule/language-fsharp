@@ -172,7 +172,7 @@
         'name': 'keyword.other.fsharp'
       }
       {
-        'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_|@)'
+        'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_|@|not|lazy|ignore)'
         'name': 'keyword.operator.fsharp'
       }
       {
