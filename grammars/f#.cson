@@ -141,7 +141,7 @@
   'definition':
     'patterns': [
       {
-        'begin': '\\b(val|val|let|and|member|override|use)\\s?\\s?(rec|inline|mutable)?\\s?(public|private|internal)?(\\s+\\(?([a-zA-Z.\\|_][a-zA-Z0-9.\\|_]*)\\)?\\w*)\\b'
+        'begin': '\\b(val|val|let|and|member|override|use)\\s?\\s?(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
         'beginCaptures':
           '1':
             'name': 'keyword.other.binding.fsharp'
@@ -149,9 +149,7 @@
             'name': 'keyword.other.function-recursive.fsharp'
           '3':
             'name': 'keyword.other.modifier.fsharp'
-          '4':
-            'name': 'variable.other.binding.fsharp'
-        'end': '=|$'
+        'end': '='
         'endCaptures':
           '1':
             'name': 'punctuation.separator.function.type-constraint.fsharp'
@@ -344,8 +342,19 @@
   'variables':
     'patterns': [
       {
-        'match': '\\(\\)'
-        'name': 'variable.parameter.unit.fsharp'
+        'begin': '(``)'
+        'beginCaptures':
+          '1':
+            'name': 'constant.character.escape.begin.fsharp'
+        'end': '(``)'
+        'endCaptures':
+          '1':
+            'name': 'constant.character.escape.end.fsharp'
+        'name': 'variable.other.binding.fsharp'
+      }
+      {
+        'match' :'[a-zA-Z._][a-zA-Z0-9._]*\\w*'
+        'name': 'variable.other.binding.fsharp'
       }
       {
         'match': '[a-zA-Z]\\w*'
