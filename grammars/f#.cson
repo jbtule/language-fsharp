@@ -141,7 +141,7 @@
   'definition':
     'patterns': [
       {
-        'begin': '\\b(val|val|let|and|member|override|use)\\s?\\s?(rec|inline|mutable)?\\s?(public|private|internal)?(\\s+\\(?([a-zA-Z.\\|_][a-zA-Z0-9.|_]*)\\)?\\w*)\\b'
+        'begin': '\\b(val|val|let|and|member|override|use)\\s?\\s?(rec|inline|mutable)?\\s?(public|private|internal)?(\\s+\\(?([a-zA-Z.\\|_][a-zA-Z0-9.\\|_]*)\\)?\\w*)\\b'
         'beginCaptures':
           '1':
             'name': 'keyword.other.binding.fsharp'
