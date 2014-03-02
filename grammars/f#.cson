@@ -126,10 +126,6 @@
   'constants':
     'patterns': [
       {
-        'match': '\\(\\)'
-        'name': 'constant.language.unit.fsharp'
-      }
-      {
         'match': '\\b-?[0-9][0-9_]*((\\.([0-9][0-9_]*([eE][+-]??[0-9][0-9_]*)?)?)|([eE][+-]??[0-9][0-9_]*))'
         'name': 'constant.numeric.floating-point.fsharp'
       }
@@ -141,7 +137,7 @@
   'definition':
     'patterns': [
       {
-        'begin': '\\b(val|val|let|and|member|override|use)\\s?\\s?(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
+        'begin': '\\b(val|val|let|and|member|override|use|type)\\s+(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
         'beginCaptures':
           '1':
             'name': 'keyword.other.binding.fsharp'
@@ -149,29 +145,19 @@
             'name': 'keyword.other.function-recursive.fsharp'
           '3':
             'name': 'keyword.other.modifier.fsharp'
-        'end': '='
+        'end': '(=)'
         'endCaptures':
           '1':
-            'name': 'punctuation.separator.function.type-constraint.fsharp'
+            'name': 'keyword.operator.equals.fsharp'
         'name': 'meta.binding.fsharp'
         'patterns': [
+          {
+            'include': '#attributes'
+          }
           {
             'include': '#variables'
           }
         ]
-      }
-      {
-        'captures':
-          '1':
-            'name': 'keyword.other.binding.fsharp'
-          '2':
-            'name': 'keyword.other.function-recursive.fsharp'
-          '4':
-            'name': 'constant.language.unit.fsharp'
-          '5':
-            'name': 'constant.language.ignored.fsharp'
-        'match': '\\b(let)\\s+((\\(\\))|(_))\\s+='
-        'name': 'meta.expression.fsharp'
       }
     ]
   'keywords':
@@ -182,12 +168,12 @@
         'name': 'meta.preprocessor.fsharp'
       }
       {
-        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|type|inherit|true|false|null|do)\\b'
+        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do)\\b'
         'name': 'keyword.other.fsharp'
       }
       {
-        'match': '(\\|>|\\|?>|\\->|\\<\\-|:>|:|\\[|\\]|\\;|\\||_)'
-        'name': 'entity.name'
+        'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_)'
+        'name': 'keyword.operator'
       }
     ]
   'method_calls':
@@ -211,11 +197,13 @@
   'modules':
     'patterns': [
       {
-        'begin': '\\b(namespace|module)\\s+([a-zA-Z][a-zA-Z0-9\'_.]*)'
+        'begin': '\\b(namespace|module)\\s+(public|private|internal)?\\s?([a-zA-Z][a-zA-Z0-9\'_.]*)'
         'beginCaptures':
           '1':
             'name': 'keyword.other.fsharp'
           '2':
+            'name': 'keyword.other.modifier.fsharp'
+          '3':
             'name': 'entity.name.section.fsharp'
         'end': '(\\s|$)'
         'name': 'meta.module.namespace.fsharp'
@@ -329,9 +317,35 @@
   'structure':
     'patterns': [
       {
-        'begin': '\\('
-        'end': '\\)'
+        'match' : '\\(\\)'
+        'name': 'keyword.operator.unit.fsharp'
+      }
+      {
+        'begin': '(\\()'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.operator.paren-group.begin.fsharp'
+        'end': '(\\))'
+        'endCaptures':
+          '1':
+            'name': 'keyword.operator.paren-group.end.fsharp'
         'name': 'meta.paren-group.fsharp'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '(\\{)'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.operator.braces.begin.fsharp'
+        'end': '(\\})'
+        'endCaptures':
+          '1':
+            'name': 'keyword.operator.braces.end.fsharp'
+        'name': 'meta.block.fsharp'
         'patterns': [
           {
             'include': '$self'
@@ -350,15 +364,15 @@
         'endCaptures':
           '1':
             'name': 'constant.character.escape.end.fsharp'
-        'name': 'variable.other.binding.fsharp'
+        'name': 'entity.name.fsharp'
       }
       {
         'match' :'[a-zA-Z._][a-zA-Z0-9._]*\\w*'
-        'name': 'variable.other.binding.fsharp'
+        'name': 'entity.name.fsharp'
       }
       {
         'match': '[a-zA-Z]\\w*'
-        'name': 'variable.parameter.fsharp'
+        'name': 'entity.name.fsharp'
       }
     ]
 'scopeName': 'source.fsharp'
