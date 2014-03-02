@@ -137,7 +137,7 @@
   'definition':
     'patterns': [
       {
-        'begin': '\\b(val|val|let|and|member|override|use|type)\\s+(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
+        'begin': '\\b((?:val|val|let|and|member|override|use|type)\\!?)\\s+(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
         'beginCaptures':
           '1':
             'name': 'keyword.other.binding.fsharp'
@@ -173,7 +173,11 @@
       }
       {
         'match': '(\\>|\\<|\\||\\=|\\?|\\:|\\;|\\-|\\[|\\]|_|@)'
-        'name': 'keyword.operator'
+        'name': 'keyword.operator.fsharp'
+      }
+      {
+        'match': '\\b(seq|async|query)\\b'
+        'name': 'support.blockname.fsharp'
       }
     ]
   'method_calls':
@@ -329,6 +333,22 @@
         'endCaptures':
           '1':
             'name': 'keyword.operator.paren-group.end.fsharp'
+        'name': 'meta.paren-group.fsharp'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '(\\<@+)'
+        'beginCaptures':
+          '1':
+            'name': 'keyword.operator.quotation.begin.fsharp'
+        'end': '(@+\\>)'
+        'endCaptures':
+          '1':
+            'name': 'keyword.operator.quotation.end.fsharp'
         'name': 'meta.paren-group.fsharp'
         'patterns': [
           {
