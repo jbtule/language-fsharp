@@ -165,7 +165,7 @@
       {
         'begin': '^\\s*#\\s*(light|if|else|endif|r|I|load|time|help|quit)\\b'
         'end': '(\\s|$)'
-        'name': 'meta.preprocessor.fsharp'
+        'name': 'constant.preprocessor.fsharp'
       }
       {
         'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do|downcast|upcast|try|catch)\\b'
@@ -346,6 +346,24 @@
           '1':
             'name': 'keyword.operator.braces.end.fsharp'
         'name': 'meta.block.fsharp'
+        'patterns': [
+          {
+            'include': '$self'
+          }
+        ]
+      }
+      {
+        'begin': '(#if|#elif|#else)\\s*(\\w*)$'
+        'beginCaptures':
+          '1':
+            'name': 'constant.preprocessor.fsharp.begin'
+          '2':
+              'name': 'entity.name.preprocessor.fsharp'
+        'end': '(#elif|#else|#endif)'
+        'endCaptures':
+          '1':
+            'name': 'constant.preprocessor.fsharp.end'
+        'name': 'meta.preprocessor.fsharp'
         'patterns': [
           {
             'include': '$self'
