@@ -11,6 +11,9 @@
     'include': '#comments'
   }
   {
+    'include': '#line-comments'
+  }
+  {
     'include': '#constants'
   }
   {
@@ -118,6 +121,9 @@
           }
         ]
       }
+    ]
+  'line-comments':
+    'patterns': [
       {
         'match': '//.*$'
         'name': 'comment.line.double-slash.fsharp'
