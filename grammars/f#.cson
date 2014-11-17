@@ -139,6 +139,18 @@
         'match': '\\b(-?((0(x|X)[0-9a-fA-F][0-9a-fA-F_]*)|(0(o|O)[0-7][0-7_]*)|(0(b|B)[01][01_]*)|([0-9][0-9_]*)))\\b'
         'name': 'constant.numeric.integer.nativeint.fsharp'
       }
+      {
+        'match': '\\b(?<!\\.)(true)\\b'
+        'name': 'constant.language.boolean.true.fsharp'
+      }
+      {
+        'match': '\\b(?<!\\.)(false)\\b'
+        'name': 'constant.language.boolean.false.fsharp'
+      }
+      {
+        'match': '\\b(?<!\\.)(null)\\b'
+        'name': 'constant.language.null.fsharp'
+      }
     ]
   'definition':
     'patterns': [
@@ -174,7 +186,7 @@
         'name': 'constant.preprocessor.fsharp'
       }
       {
-        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do|downcast|upcast|try|catch)\\b'
+        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|do|downcast|upcast|try|catch)\\b'
         'name': 'keyword.other.fsharp'
       }
       {
