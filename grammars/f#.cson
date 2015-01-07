@@ -97,7 +97,7 @@
           }
           {
             'match': '\\\\(?![\\\\\'ntbr]|u[a-fA-F0-9]{4}|u[a-fA-F0-9]{8}).'
-            'name': 'invalid.illeagal.character.string.fsharp'
+            'name': 'invalid.illegal.character.string.fsharp'
           }
         ]
       }
@@ -143,13 +143,15 @@
   'definition':
     'patterns': [
       {
-        'begin': '\\b((?:val|val|let|and|member|override|use|type)\\!?)\\s+(rec|inline|mutable)?\\s?(public|private|internal)?\\s?'
+        'begin': '\\b((abstract)?\\s?(?:val|val|let|and|member|override|use|type)\\!?)\\s+(rec|inline)?\\s?(public|private|internal)?\\s?'
         'beginCaptures':
           '1':
-            'name': 'keyword.other.binding.fsharp'
+            'name': 'keyword.other.binding-prefix.fsharp'
           '2':
-            'name': 'keyword.other.function-recursive.fsharp'
+            'name': 'keyword.other.binding.fsharp'
           '3':
+            'name': 'keyword.other.function-recursive.fsharp'
+          '4':
             'name': 'keyword.other.modifier.fsharp'
         'end': '(=)'
         'endCaptures':
@@ -174,7 +176,7 @@
         'name': 'constant.preprocessor.fsharp'
       }
       {
-        'match': '\\b(new|in|as|if|then|else|elif|for|begin|end|match|with|inherit|true|false|null|do|downcast|upcast|try|catch)\\b'
+        'match': '\\b(new|in|as|if|then|else|elif|for|begin|class|interface|end|match|with|inherit|true|false|null|do|downcast|upcast|try|catch)\\b'
         'name': 'keyword.other.fsharp'
       }
       {
